@@ -1,0 +1,49 @@
+﻿<button class="btn btn-outline-danger btn-xs gridColumnButton" onclick="@Show">
+    <span class="oi oi-trash" aria-hidden="true"></span>
+</button>
+
+@if (IsVisible)
+{
+    <div class="modal" role="dialog" tabindex="-1" style="display: block;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Annuler" onclick=@Hide>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Etes vous sûr de vouloir supprimer cet enregistrement ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick=@Delete>Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick=@Hide>Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop show"></div>
+}
+
+@functions {
+    [Parameter] private Action DeleteAction { get; set; }
+    private bool IsVisible { get; set; }
+
+    void Show()
+    {
+        this.IsVisible = true;
+        this.StateHasChanged();
+    }
+
+    void Hide()
+    {
+        this.IsVisible = false;
+        this.StateHasChanged();
+    }
+
+    void Delete()
+    {
+        DeleteAction.Invoke();
+        Hide();
+    }
+}

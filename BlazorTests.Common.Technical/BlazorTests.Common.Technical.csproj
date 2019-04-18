@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorTests.Common.Data\BlazorTests.Common.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SD.LLBLGen.Pro.ORMSupportClasses">
+      <HintPath>..\lib\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿@inherits EditComponentWrapperComponent
+
+<div class="sidebar">
+    <Menu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <h2>@Title</h2>
+    </div>
+    <div class="card-body bg-white componentTransition" style="margin:20px;">
+        @ChildContent
+    </div>
+    <div class="card-footer bg-white" style="margin:20px;height:60px;">
+        <div class="form-group float-right">
+            <button input="button" class="btn btn-light" onclick="@(() => CheckAndSave())">
+                <span class="oi oi-check" style="color:green" aria-hidden="true"></span> Sauvegarder
+            </button>
+            <button input="button" class="btn btn-light" onclick="@(() => Close())">
+                <span class="oi oi-x" style="color:red" aria-hidden="true"></span> Fermer
+            </button>
+        </div>
+    </div>
+</div>

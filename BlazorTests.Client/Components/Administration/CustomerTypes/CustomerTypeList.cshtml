@@ -1,0 +1,50 @@
+﻿@using BlazorTests.Shared
+@page "/Administration/CustomerType"
+@inherits CustomerTypeListComponent
+
+
+<ComponentWrapper Title="@Title">
+
+    @if (@CustomerTypes == null)
+    {
+        <p><em>Chargement en cours ...</em></p>
+    }
+    else
+    {
+        <table id="customerTypeTable" class="table table-sm table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="headerFilter"></th>
+                    <th class="headerFilter"></th>
+                    <th class="headerWithoutFilter"></th>
+                </tr>                   
+                <tr>
+                    <th>Id</th>
+                    <th>Libellé</th>
+                    <th>
+                        <button class="btn btn-outline-light btn-xs gridColumnButton" onclick="@(() => AddCustomerType())">
+                            <span class="oi oi-plus" aria-hidden="true"></span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customerType in CustomerTypes)
+                {
+                    <tr>
+                        <td class="autoSizeToContent">@customerType.Id</td>
+                        <td>@customerType.Text</td>
+                        <td class="autoSizeToContent">
+                            <button class="btn btn-outline-success btn-xs gridColumnButton" onclick="@(() => EditCustomerType(customerType.Id))">
+                                <span class="oi oi-pencil" aria-hidden="true"></span>
+                            </button>
+                            <DeleteButton DeleteAction="@(() => DeleteCustomerType(customerType.Id))"></DeleteButton>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</ComponentWrapper>
+

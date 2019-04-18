@@ -1,0 +1,16 @@
+﻿@using BlazorTests.Shared
+@page "/Administration/CustomerType/Edit"
+@page "/Administration/CustomerType/Edit/{IdAsString}"
+@inherits CustomerTypeEditComponent
+
+
+<EditComponentWrapper Title="@Title" CheckAndSaveAction="@(() => CheckAndSave())" CloseAction="@(() => Close())">
+
+	<div class="row form-group ">
+		<label class="col-form-label col-md-1">Libellé</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" bind=@Text />
+		</div>
+    </div>
+
+</EditComponentWrapper>

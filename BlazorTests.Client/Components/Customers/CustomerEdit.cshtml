@@ -1,0 +1,38 @@
+﻿@using BlazorTests.Shared
+@page "/Customer/Edit"
+@page "/Customer/Edit/{IdAsString}"
+@inherits CustomerEditComponent
+
+<EditComponentWrapper Title="@Title" CheckAndSaveAction="@(() => CheckAndSave())" CloseAction="@(() => Close())">
+
+
+    <div class="row form-group">
+        <label class="col-form-label col-md-1">Nom</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" bind=@Name />
+        </div>
+    </div>
+
+	<div class="row form-group ">
+		<label class="col-form-label col-md-1">Prénom</label>
+		<div class="col-md-4">
+			<input class="form-control" type="text" bind=@FirstName />
+		</div>
+    </div>
+
+	<div class="row form-group ">
+		<label class="col-form-label col-md-1">Type</label>
+		<div class="col-md-4">
+			<select class="form-control custom-select" bind="@CustomerTypeId">
+				@foreach (var customerType in CustomerTypes)
+				{
+					<option value="@customerType.Id">@customerType.Text</option>
+				}
+			</select>
+		</div>
+	</div>
+
+
+</EditComponentWrapper>
+
+  

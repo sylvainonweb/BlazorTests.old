@@ -1,0 +1,277 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+	font-family: 'Open sans', Georgia, Arial;
+	background-color: rgb(236, 236, 236);
+}
+
+app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+}
+
+    .main .top-row {
+        background-color: rgba(81,91,116,1);
+        color: white;
+    }
+
+/* ===========================================================================
+
+   MENU
+
+   ===========================================================================*/
+.sidebar {
+    background: linear-gradient(135deg, #515B74 0%, #515B74 30%, #515B7D 85%, #515B7D 100%);
+}
+
+    .sidebar .top-row {
+        background-color: rgba(81,91,116,1);
+    }
+
+    .sidebar .navbar-brand {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,255);
+    }
+
+	.sidebar .oi {
+		width: 2rem;
+		font-size: 1.1rem;
+		vertical-align: text-top;
+		top: -2px;
+	}
+
+.nav-item {
+	font-size: 0.9rem;
+	padding-bottom: 0.5rem;
+}
+
+	.nav-item:first-of-type {
+		padding-top: 1rem;
+	}
+
+	.nav-item:last-of-type {
+		padding-bottom: 1rem;
+	}
+
+	.nav-item a {
+		color: white;
+		border-radius: 4px;
+		height: 3rem;
+		display: flex;
+		align-items: center;
+		line-height: 3rem;
+	}
+
+		.nav-item a.active {
+			background-color: rgba(255,255,255,0.25);
+			color: white;
+		}
+
+		.nav-item a:hover {
+			background-color: rgba(255,255,255,0.1);
+			color: white;
+		}
+
+.content {
+	padding-top: 1.1rem;
+}
+
+.navbar-toggler {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ===========================================================================
+
+   MEDIAS
+
+   ===========================================================================*/
+
+@media (max-width: 767.98px) {
+	.main .top-row {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	app {
+		flex-direction: row;
+	}
+
+	.sidebar {
+		width: 250px;
+		height: 100vh;
+		position: sticky;
+		top: 0;
+	}
+
+	.main .top-row {
+		position: sticky;
+		top: 0;
+	}
+
+	.main > div {
+		padding-left: 2rem !important;
+		padding-right: 1.5rem !important;
+	}
+
+	.navbar-toggler {
+		display: none;
+	}
+
+	.sidebar .collapse {
+		/* Never collapse the sidebar for wide screens */
+		display: block;
+	}
+}
+
+
+
+
+/* ===========================================================================
+
+   TABLES 
+
+   ===========================================================================*/
+/*table {
+	border-collapse: separate;
+	border-spacing: 0 15px;
+}*/
+/*tbody tr {
+	border: solid thin;
+	background-color: white;
+	box-shadow: 1px 1px 1px #DBDBDB;
+}*/
+/* Arrondi des 1ers td */
+/*thead tr th:first-child,
+tbody tr td:first-child {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}*/
+/* Arrondi des 1ers td */
+/*thead tr th:last-child,
+tbody tr td:last-child {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}*/
+
+/* Permet à une colonne de se redimensionner en fonction de son contenu */
+td.autoSizeToContent {
+    width: 1px;
+    white-space: nowrap;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: rgba(81,91,116,0.7);
+}
+
+th.headerFilter {
+    background-color: transparent; 
+    border: transparent;
+}
+th.headerWithoutFilter {
+    background-color: transparent; 
+    border: transparent;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Colorisation des lignes impairs des tables */
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: rgba(216,232,247,0.4);
+}
+
+/* ===========================================================================
+
+   JQUERY DATATABLES
+
+   ===========================================================================*/
+/* Placement du bouton Rechercher */
+.dataTables_filter {
+    float: left !important;
+}
+
+/* Placement des boutons d'export, de pagination, ... */
+div.dt-buttons {
+    position: relative;
+    float: left !important;
+}
+.dataTables_info {
+    position: relative;
+    float: right !important;
+}
+.dataTables_paginate {
+    position: relative;
+    float: right !important;
+}
+
+
+/* ===========================================================================
+
+   BOUTONS
+
+   ===========================================================================*/
+/* Bouton positionné dans une colonne d'une grille (on enlève la bordure) */
+.btn.gridColumnButton {
+    padding: 2px 5px 0px 5px;
+	border: 0px solid transparent;
+    display:inline;
+}
+
+.btn.excelButton {
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    border-width: 1px;
+    color: green;
+    background-color:white;
+}
+.btn.excelButton:hover {
+    color: white;
+    background-color:green;
+}
+
+/* ===========================================================================
+
+   TRANSITIONS ENTRE LES PAGES (COMPOSANTS)
+
+   ===========================================================================*/
+.componentTransition {
+    -webkit-animation: fade 1.0s ease both;
+    animation: fade 1.0s ease both;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+} 

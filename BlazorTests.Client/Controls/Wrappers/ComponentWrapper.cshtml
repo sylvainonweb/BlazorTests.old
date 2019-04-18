@@ -1,0 +1,18 @@
+﻿<div class="sidebar">
+    <Menu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <h2>@Title</h2>
+    </div>
+
+    <div class="card-body bg-white componentTransition" style="margin:20px;">
+        @ChildContent
+    </div>
+</div>
+
+@functions {
+    [Parameter] private RenderFragment ChildContent { get; set; }
+    [Parameter] private string Title { get; set; }
+}
